@@ -3,7 +3,8 @@
     <el-card class="box-card">
       <el-row>
         <el-col :span="20">
-          <div class="leftFather">
+          <div class="leftFather"
+               ref="leftFather">
             <!-- 档案信息 -->
             <div id="page1">
               <h3 class="pageTitle">档案信息</h3>
@@ -1082,7 +1083,6 @@ export default {
         if (this.$route.query.type2 === "bg") newData.cId = this.$route.query.fId
         await getDisabilityAllowanceApi(newData)
       } catch (error) {
-        console.log(error, "获取残疾人信息")
         if (error.response.data.status === '+OK') {
           this.disabledInfo = error.response.data.data.data
           this.disabledInfo.abd_ex28 = this.disabledInfo.abd_ex28.replace(/[#0-9,]/g, "")
@@ -1107,7 +1107,6 @@ export default {
             try {
               if (item) await getBannersApi(item)
             } catch (error) {
-              console.log(error, "IDCardArrIDCardArr")
               if (error && error.response && error.response.statusText === "OK") {
                 this.IDCardArr.push(error.response.data)
               }
@@ -1163,7 +1162,6 @@ export default {
               }
             }
           })
-          console.log(this.disabledInfo, "this.disabledInfothis.disabledInfo")
         }
       }
     },
@@ -1196,7 +1194,6 @@ export default {
       } catch (error) {
         if (error.response.data.status === "+OK") {
           this.disabledRecordDat = error.response.data.data
-          console.log(this.disabledRecordDat, "this.disabledRecordDat")
         }
       }
     },
@@ -1224,7 +1221,6 @@ export default {
         }
         // gs
         else if (this.gsForm.opinion && this.gsForm.place && this.gsForm.startingTime && this.gsForm.endTime && this.gsFormImg.length && this.gsForm.type === "gs") {
-          console.log("gs条件满足了")
           // 处理成后端想要的时间格式
           this.gsForm.startingTime = this.formatDate(this.gsForm.startingTime)
           this.gsForm.endTime = this.formatDate(this.gsForm.endTime)
@@ -1234,27 +1230,23 @@ export default {
         }
         // sp sp2
         else if (this.spForm.opinion && this.spForm.userName && this.spForm.date && this.spForm.type === 'sp' || this.spForm.type === 'sp2') {
-          console.log("进审批了")
           this.spForm.date = this.formatDate(this.spForm.date)
           await disabledFlowPathApi(this.spForm)
         }
         // zx
         else if (this.zxForm.date && this.zxForm.remark && this.zxForm.type === 'zx') {
-          console.log("进入了注销页面")
           this.zxForm.date = this.formatDate(this.zxForm.date)
           await disabledFlowPathApi(this.zxForm)
         }
         // sh3 sp3 sh2
         else if (this.sh3Form.opinion && this.sh3Form.userName && this.sh3Form.date && this.sh3Form.type === 'sh3' || this.sh3Form.type === "sp3" || this.sh3Form.type === "sh2") {
           this.sh3Form.date = this.formatDate(this.sh3Form.date)
-          console.log("sh3,sp3")
           await disabledFlowPathApi(this.sh3Form)
         }
         else {
           this.$message.warning("请填写完整的信息")
         }
       } catch (error) {
-        console.log(error)
         if (error && error.response && error.response.data.status === "+OK") {
           this.$message.success(error.response.data.msg)
           if (this.$route.query.type2 === "sh") this.$router.push("/SubsidyDisabled/audit")
@@ -1283,7 +1275,6 @@ export default {
     },
     // 图片上传成功的回调
     onSuccess (response, file, fileList) {
-      console.log(response, file, fileList)
       this.fileList = fileList
     },
     onClose () {
@@ -1319,6 +1310,9 @@ export default {
     },
     formatDate (val) {
       return dayjs(val).format("YYYY-MM-DD HH:mm:ss")
+    },
+    onScroll () {
+      console.log('滚动了')
     }
   },
   components: {
@@ -1327,7 +1321,6 @@ export default {
     $route: {
       immediate: true,
       handler (to, from) {
-        console.log(this.$route)
         if (to.query.type === "th") this.form.type = "th"
         if (to.query.type === "th2") this.form.type = "th2"
         if (to.query.type === "sh") this.form.type = "sh"
@@ -1360,13 +1353,16 @@ export default {
           this.spForm.sId = to.query.fId
         }
         if (to) {
-          console.log(to, "tooooooooooooo")
           this.userData = to.query
           this.form.sId = this.userData.sId
         }
       }
     }
   },
+  mounted () {
+    let dom = this.$refs.leftFather
+    dom.addEventListener("scroll", this.onScroll)
+  }
 }
 </script>
 
