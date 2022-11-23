@@ -949,7 +949,7 @@
               <li :class="{currentLi: currClass === 'YXSJZQK'}"><a @click="goScrollView('#page5','YXSJZQK')" href="javascript:;">已享受救助情况</a></li>
               <li :class="{currentLi: currClass === 'DZFJ'}"><a @click="goScrollView('#page6','DZFJ')" href="javascript:;">电子附件</a></li>
               <li :class="{currentLi: currClass === 'SH1'|| currClass === 'SH2'}"
-                  v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a @click="goScrollView('#page8',document.querySelector('.SH1') ? 'SH1' :'SH2')" href="javascript:;">审核</a></li>
+                  v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a @click="goScrollView('#page8',form.type === 'sh' ? 'SH2' :'SH1')" href="javascript:;">审核</a></li>
               <li :class="{currentLi: currClass === 'GS'}"
                   v-if="gsForm.type === 'gs'"><a @click="goScrollView('#page9','GS')" href="javascript:;">公示</a></li>
               <li :class="{currentLi: currClass === 'SP'}"
@@ -1039,7 +1039,7 @@ export default {
         opinion: "退回",  // 退回意见
         userName: "",  // 退回人
         remark: "",   // 退回原因
-        date: null
+        date: null,
       },
       saveLoading: false,
       // 公示

@@ -161,46 +161,6 @@
 						</template>
 					</el-table-column>
 				</el-table>
-				<!-- <el-row :gutter="20">
-					<el-col :span="12">
-						<el-form-item label="预警内容1" prop="aw_ex1">
-							<el-input v-model="warningData[0].aw_ex1" placeholder="请输入预警内容"   @change="changeAmt2"></el-input>
-						</el-form-item>
-					</el-col>
-					<el-col :span="12">
-						<el-form-item label="预警时间1" prop="aw_dat" disabledDate>
-							<el-date-picker  v-model="warningData[0].aw_dat1"  value-format="yyyy-MM-dd" style="width: 100%;" :picker-options="pickerOptions"  @change="changeAmt2">
-							</el-date-picker>
-						</el-form-item>
-					</el-col>
-				</el-row>
-				<el-row :gutter="20" >
-					<el-col :span="12">
-						<el-form-item label="预警内容2" prop="aw_ex1">
-							<el-input v-model="warningData[1].aw_ex1" placeholder="请输入预警内容" @change="changeAmt2"></el-input>
-						</el-form-item>
-					</el-col>
-					<el-col :span="12">
-						<el-form-item label="预警时间2" prop="aw_ex1">
-							<el-date-picker type="date" v-model="warningData[1].aw_dat1"  value-format="yyyy-MM-dd" style="width: 100%;" :picker-options="pickerOptions" @change="changeAmt2">
-							</el-date-picker>
-						</el-form-item>
-					</el-col>
-				</el-row>
-				<el-row :gutter="20" >
-					<el-col :span="12">
-						<el-form-item label="预警内容3" prop="aw_ex1">
-							<el-input v-model="warningData[2].aw_ex1" placeholder="请输入预警内容" @change="changeAmt2"></el-input>
-						</el-form-item>
-					</el-col>
-					<el-col :span="12">
-						<el-form-item label="预警时间3" prop="aw_ex1">
-							<el-date-picker type="date" v-model="warningData[2].aw_dat1"  value-format="yyyy-MM-dd" style="width: 100%;" :picker-options="pickerOptions"  @change="changeAmt2">
-							</el-date-picker>
-						</el-form-item>
-					</el-col>
-				</el-row> -->
-				
 				<h3 class="line_blue" id="page3">&emsp;共同生活家庭成员情况 <span style="color:red">*</span></h3>
 				<div class="lineSt"></div>
 				<el-row class="button-group">
@@ -609,10 +569,6 @@
 				</div>
 				
 				<div style="margin-top:20px">
-					<!-- <el-row class="button-group" style="margin-top:20px">
-						<el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAddDetails('income2')">新增</el-button>
-						<el-button type="danger" icon="el-icon-delete" size="mini" @click="handleDelDetails('income2')">删除</el-button>
-					</el-row> -->
 					<el-table :data="income2" border :row-class-name="rowClassName" @selection-change="handleIncome2" empty-text='空' class="my-table">
 						<el-table-column label="经营性收入(年)" align="center">
 							<el-table-column label="计入收入名称" prop="abi_ex1" min-width="160">
@@ -3410,6 +3366,11 @@
 
 			counter(id) { //counter1是绑定的点击事件名称
 				document.querySelector(id).scrollIntoView(true);
+				// const returnEle = document.querySelector("#page8"); //productId是将要跳转区域的id
+				// if (!!returnEle) {
+				// 	returnEle.scrollIntoView(true); // true 是默认的
+				// }
+				// document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
 			},
 			async loadData() {// 进入页面加载数据
 
