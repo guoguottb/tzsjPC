@@ -6,7 +6,8 @@
           <div class="leftFather"
                ref="leftFather">
             <!-- 档案信息 -->
-            <div id="page1">
+            <div id="page1"
+                 class="DAXX">
               <h3 class="pageTitle">档案信息</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -68,7 +69,8 @@
               </div>
             </div>
             <!-- 变更信息 -->
-            <div style="marginTop:60px;marginBottom:60px"
+            <div class="BGXX"
+                 style="marginTop:60px;marginBottom:60px"
                  v-if="$route.query.type2 === 'bg'"
                  id="page13">
               <h3 class="pageTitle">变更信息</h3>
@@ -77,7 +79,8 @@
               <p v-if="!this.changeInfo.length">暂无变更信息</p>
             </div>
             <!-- 基础信息 -->
-            <div id="page2">
+            <div class="JCXX"
+                 id="page2">
               <h3 class="pageTitle">基础信息</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -205,7 +208,8 @@
               </el-descriptions>
             </div>
             <!-- 银行信息 -->
-            <div id="page3">
+            <div id="page3"
+                 class="YHXX">
               <h3 class="pageTitle">银行信息</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -231,7 +235,8 @@
               </el-descriptions>
             </div>
             <!-- 家庭财产情况 -->
-            <div id="page4">
+            <div class="JTCCQK"
+                 id="page4">
               <h3 class="pageTitle">家庭财产情况</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -263,7 +268,8 @@
               </el-descriptions>
             </div>
             <!-- 已享受救助情况 -->
-            <div id="page5">
+            <div class="YXSJZQK"
+                 id="page5">
               <h3 class="pageTitle">已享受救助情况</h3>
               <el-row>
                 <el-col :span="12"
@@ -328,7 +334,8 @@
               </el-row>
             </div>
             <!-- 电子附件 -->
-            <div id="page6">
+            <div class="DZFJ"
+                 id="page6">
               <h3 class="pageTitle">电子附件</h3>
               <el-row>
                 <el-col :span="12">
@@ -509,7 +516,8 @@
               </el-row>
             </div>
             <!-- 审核1 -->
-            <div style="marginTop:60px"
+            <div class="SH1"
+                 style="marginTop:60px"
                  v-if="form.type === 'th' || form.type ==='th2'"
                  id="page8">
               <h3 class="pageTitle">审核</h3>
@@ -550,7 +558,8 @@
               </el-form>
             </div>
             <!-- 审核2 -->
-            <div style="marginTop:60px"
+            <div class="SH2"
+                 style="marginTop:60px"
                  v-if="form.type === 'sh'"
                  id="page8">
               <h3 class="pageTitle">审核</h3>
@@ -608,7 +617,8 @@
               </el-form>
             </div>
             <!-- 审核sh3 sh2 -->
-            <div style="marginTop:60px"
+            <div class="SH3"
+                 style="marginTop:60px"
                  v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"
                  id="page12">
               <h3 class="pageTitle">审核</h3>
@@ -663,7 +673,8 @@
               </el-form>
             </div>
             <!-- 公示 -->
-            <div style="marginTop:60px"
+            <div class="GS"
+                 style="marginTop:60px"
                  v-if="gsForm.type === 'gs'"
                  id="page9">
               <h3 class="pageTitle">公示</h3>
@@ -762,7 +773,8 @@
               </el-form>
             </div>
             <!-- 审批 -->
-            <div style="marginTop:60px"
+            <div class="SP"
+                 style="marginTop:60px"
                  v-if="spForm.type === 'sp'|| this.spForm.type === 'sp2'"
                  id="page10">
               <h3 class="pageTitle">审批</h3>
@@ -818,7 +830,8 @@
               </el-form>
             </div>
             <!-- 注销 -->
-            <div style="marginTop:60px"
+            <div class="ZX"
+                 style="marginTop:60px"
                  v-if="zxForm.type === 'zx'"
                  id="page11">
               <h3 class="pageTitle">注销</h3>
@@ -852,7 +865,8 @@
               </el-form>
             </div>
             <!-- 审批记录 -->
-            <div style="marginTop:60px"
+            <div class="SPJL"
+                 style="marginTop:60px"
                  id="page7">
               <h3 class="pageTitle">审批记录</h3>
               <template v-if="disabledRecordDat.length">
@@ -1061,7 +1075,11 @@ export default {
         remark: ""
       },
       // 变更信息
-      changeInfo: []
+      changeInfo: [],
+      anchor: "档案信息",
+      fatherDom_Top: "",
+      indexesArr: [],
+      currClass: ""
     }
   },
   created () {
@@ -1312,7 +1330,79 @@ export default {
       return dayjs(val).format("YYYY-MM-DD HH:mm:ss")
     },
     onScroll () {
-      console.log('滚动了')
+      let DAXX = document.querySelector(".DAXX") || "" // 档案信息
+      let BGXX = document.querySelector(".BGXX") || "" // 变更信息
+      let JCXX = document.querySelector(".JCXX") || "" // 基础信息
+      let YHXX = document.querySelector(".YHXX") || "" // 银行信息
+      let JTCCQK = document.querySelector(".JTCCQK") || "" // 家庭财产情况
+      let YXSJZQK = document.querySelector(".YXSJZQK") || "" // 已享受救助情况
+      let DZFJ = document.querySelector(".DZFJ") || "" // 电子附件
+      let SH1 = document.querySelector(".SH1") || "" // 审核1
+      let SH2 = document.querySelector(".SH2") || "" // 审核2
+      let SH3 = document.querySelector(".SH3") || "" // 审核sh3
+      let GS = document.querySelector(".GS") || "" // 公示
+      let SP = document.querySelector(".SP") || "" // 审批
+      let ZX = document.querySelector(".ZX") || "" // 注销
+      let SPJL = document.querySelector(".SPJL") || "" // 审批记录
+      if (DAXX && DAXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "DAXX"
+      if (BGXX && BGXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "BGXX"
+      if (JCXX && JCXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "JCXX"
+      if (YHXX && YHXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "YHXX"
+      if (JTCCQK && JTCCQK.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "JTCCQK"
+      if (YXSJZQK && YXSJZQK.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "YXSJZQK"
+      if (DZFJ && DZFJ.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "DZFJ"
+      console.log("scroll",YHXX , YHXX.getBoundingClientRect().top === this.fatherDom_Top)
+      // if (document.querySelector(".BGXX")) this.indexesArr.push({
+      //   BGXX: document.querySelector(".BGXX").getBoundingClientRect().top
+      // })
+      // // 基础信息
+      // if (document.querySelector(".JCXX")) this.indexesArr.push({
+      //   JCXX: document.querySelector(".JCXX").getBoundingClientRect().top
+      // })
+      // // 银行信息
+      // if (document.querySelector(".YHXX")) this.indexesArr.push({
+      //   YHXX: document.querySelector(".YHXX").getBoundingClientRect().top
+      // })
+      // // 家庭财产情况
+      // if (document.querySelector(".JTCCQK")) this.indexesArr.push({
+      //   sJTCCQK: document.querySelector(".JTCCQK").getBoundingClientRect().top
+      // })
+      // // 已享受救助情况
+      // if (document.querySelector(".YXSJZQK")) this.indexesArr.push({
+      //   YXSJZQK: document.querySelector(".YXSJZQK").getBoundingClientRect().top
+      // })
+      // // 电子附件
+      // if (document.querySelector(".DZFJ")) this.indexesArr.push({
+      //   DZFJ: document.querySelector(".DZFJ").getBoundingClientRect().top
+      // })
+      // // 审核1
+      // if (document.querySelector(".SH1")) this.indexesArr.push({
+      //   SH1: document.querySelector(".SH1").getBoundingClientRect().top
+      // })
+      // // 审核2
+      // if (document.querySelector(".SH2")) this.indexesArr.push({
+      //   SH2: document.querySelector(".SH2").getBoundingClientRect().top
+      // })
+      // // 审核sh3
+      // if (document.querySelector(".SH3")) this.indexesArr.push({
+      //   SH3: document.querySelector(".SH3").getBoundingClientRect().top
+      // })
+      // // 公示
+      // if (document.querySelector(".GS")) this.indexesArr.push({
+      //   GS: document.querySelector(".GS").getBoundingClientRect().top
+      // })
+      // // 审批
+      // if (document.querySelector(".SP")) this.indexesArr.push({
+      //   SP: document.querySelector(".SP").getBoundingClientRect().top
+      // })
+      // // 注销
+      // if (document.querySelector(".ZX")) this.indexesArr.push({
+      //   ZX: document.querySelector(".ZX").getBoundingClientRect().top
+      // })
+      // // 审批记录
+      // if (document.querySelector(".SPJL")) this.indexesArr.push({
+      //   SPJL: document.querySelector(".SPJL").getBoundingClientRect().top
+      // })
     }
   },
   components: {
@@ -1357,10 +1447,16 @@ export default {
           this.form.sId = this.userData.sId
         }
       }
+    },
+    currClass: {
+      handler () {
+        console.log(this.currClass)
+      }
     }
   },
   mounted () {
     let dom = this.$refs.leftFather
+    this.fatherDom_Top = dom.getBoundingClientRect().top
     dom.addEventListener("scroll", this.onScroll)
   }
 }
@@ -1448,5 +1544,9 @@ export default {
   .el-carousel__button {
     background-color: #409eff;
   }
+}
+
+.rightIndexes {
+  list-style: none;
 }
 </style>

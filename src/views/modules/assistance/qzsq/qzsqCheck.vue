@@ -3410,11 +3410,6 @@
 
 			counter(id) { //counter1是绑定的点击事件名称
 				document.querySelector(id).scrollIntoView(true);
-				// const returnEle = document.querySelector("#page8"); //productId是将要跳转区域的id
-				// if (!!returnEle) {
-				// 	returnEle.scrollIntoView(true); // true 是默认的
-				// }
-				// document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
 			},
 			async loadData() {// 进入页面加载数据
 
