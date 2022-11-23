@@ -938,19 +938,27 @@
           </div>
           <div class="right-ui">
             <ul>
-              <li :class="{currentLi: currClass === 'DAXX'}"><a href="#page1">档案信息</a></li>
-              <li :class="{currentLi: currClass === 'BGXX'}" v-if="$route.query.type2 === 'bg'"><a href="#page13">变更信息</a></li>
-              <li :class="{currentLi: currClass === 'JCXX'}"><a href="#page2">基础信息</a></li>
-              <li :class="{currentLi: currClass === 'YHXX'}"><a href="#page3">银行信息</a></li>
-              <li :class="{currentLi: currClass === 'JTCCQK'}"><a href="#page4">家庭财产情况</a></li>
-              <li :class="{currentLi: currClass === 'YXSJZQK'}"><a href="#page5">已享受救助情况</a></li>
-              <li :class="{currentLi: currClass === 'DZFJ'}"><a href="#page6">电子附件</a></li>
-              <li :class="{currentLi: currClass === 'SH1'|| currClass === 'SH2'}" v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a href="#page8">审核</a></li>
-              <li :class="{currentLi: currClass === 'GS'}" v-if="gsForm.type === 'gs'"><a href="#page9">公示</a></li>
-              <li :class="{currentLi: currClass === 'SP'}" v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a href="#page10">审批</a></li>
-              <li :class="{currentLi: currClass === 'ZX'}" v-if="zxForm.type === 'zx'"><a href="#page11">注销</a></li>
-              <li :class="{currentLi: currClass === 'SH3'}" v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="#page12">审核</a></li>
-              <li :class="{currentLi: currClass === 'SPJL'}"><a href="#page7">审批记录</a></li>
+              <li :class="{currentLi: currClass === 'DAXX'}"><a href="javascript:;"
+                   @click="goScrollView('#page1','DAXX')">档案信息</a></li>
+              <li :class="{currentLi: currClass === 'BGXX'}"
+                  v-if="$route.query.type2 === 'bg'"><a @click="goScrollView('#page13','BGXX')"
+                   href="javascript:;">变更信息</a></li>
+              <li :class="{currentLi: currClass === 'JCXX'}"><a @click="goScrollView('#page2','JCXX')" href="javascript:;">基础信息</a></li>
+              <li :class="{currentLi: currClass === 'YHXX'}"><a @click="goScrollView('#page3','YHXX')" href="javascript:;">银行信息</a></li>
+              <li :class="{currentLi: currClass === 'JTCCQK'}"><a @click="goScrollView('#page4','JTCCQK')" href="javascript:;">家庭财产情况</a></li>
+              <li :class="{currentLi: currClass === 'YXSJZQK'}"><a @click="goScrollView('#page5','YXSJZQK')" href="javascript:;">已享受救助情况</a></li>
+              <li :class="{currentLi: currClass === 'DZFJ'}"><a @click="goScrollView('#page6','DZFJ')" href="javascript:;">电子附件</a></li>
+              <li :class="{currentLi: currClass === 'SH1'|| currClass === 'SH2'}"
+                  v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a @click="goScrollView('#page8',document.querySelector('.SH1') ? 'SH1' :'SH2')" href="javascript:;">审核</a></li>
+              <li :class="{currentLi: currClass === 'GS'}"
+                  v-if="gsForm.type === 'gs'"><a @click="goScrollView('#page9','GS')" href="javascript:;">公示</a></li>
+              <li :class="{currentLi: currClass === 'SP'}"
+                  v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a @click="goScrollView('#page10','SP')" href="javascript:;">审批</a></li>
+              <li :class="{currentLi: currClass === 'ZX'}"
+                  v-if="zxForm.type === 'zx'"><a @click="goScrollView('#page11','ZX')" href="javascript:;">注销</a></li>
+              <li :class="{currentLi: currClass === 'SH3'}"
+                  v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="javascript:;" @click="goScrollView('#page12','SH3')">审核</a></li>
+              <li :class="{currentLi: currClass === 'SPJL'}"><a @click="goScrollView('#page7','SPJL')" href="javascript:;">审批记录</a></li>
             </ul>
           </div>
         </el-col>
@@ -1078,8 +1086,7 @@ export default {
       changeInfo: [],
       anchor: "档案信息",
       fatherDom_Top: "",
-      indexesArr: [],
-      currClass: ""
+      currClass: "DAXX",    // right li curr style
     }
   },
   created () {
@@ -1358,6 +1365,10 @@ export default {
       if (SP && Math.abs(SP.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SP"
       if (ZX && Math.abs(ZX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "ZX"
       if (SPJL && Math.abs(SPJL.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SPJL"
+    },
+    goScrollView (id, curr) {
+      this.currClass = curr
+      document.querySelector(id).scrollIntoView(true);
     }
   },
   components: {
@@ -1509,7 +1520,7 @@ export default {
 .currentLi {
   list-style: unset !important;
   a {
-  color: #409eff !important;
+    color: #409eff !important;
   }
 }
 </style>
