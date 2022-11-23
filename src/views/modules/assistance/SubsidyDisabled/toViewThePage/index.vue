@@ -3,11 +3,9 @@
     <el-card class="box-card">
       <el-row>
         <el-col :span="20">
-          <div class="leftFather"
-               ref="leftFather">
+          <div class="leftFather">
             <!-- 档案信息 -->
-            <div id="page1"
-                 class="DAXX">
+            <div id="page1">
               <h3 class="pageTitle">档案信息</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -69,8 +67,7 @@
               </div>
             </div>
             <!-- 变更信息 -->
-            <div class="BGXX"
-                 style="marginTop:60px;marginBottom:60px"
+            <div style="marginTop:60px;marginBottom:60px"
                  v-if="$route.query.type2 === 'bg'"
                  id="page13">
               <h3 class="pageTitle">变更信息</h3>
@@ -79,8 +76,7 @@
               <p v-if="!this.changeInfo.length">暂无变更信息</p>
             </div>
             <!-- 基础信息 -->
-            <div class="JCXX"
-                 id="page2">
+            <div id="page2">
               <h3 class="pageTitle">基础信息</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -208,8 +204,7 @@
               </el-descriptions>
             </div>
             <!-- 银行信息 -->
-            <div id="page3"
-                 class="YHXX">
+            <div id="page3">
               <h3 class="pageTitle">银行信息</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -235,8 +230,7 @@
               </el-descriptions>
             </div>
             <!-- 家庭财产情况 -->
-            <div class="JTCCQK"
-                 id="page4">
+            <div id="page4">
               <h3 class="pageTitle">家庭财产情况</h3>
               <el-descriptions class="margin-top"
                                style="margin-bottom:20px"
@@ -268,8 +262,7 @@
               </el-descriptions>
             </div>
             <!-- 已享受救助情况 -->
-            <div class="YXSJZQK"
-                 id="page5">
+            <div id="page5">
               <h3 class="pageTitle">已享受救助情况</h3>
               <el-row>
                 <el-col :span="12"
@@ -334,8 +327,7 @@
               </el-row>
             </div>
             <!-- 电子附件 -->
-            <div class="DZFJ"
-                 id="page6">
+            <div id="page6">
               <h3 class="pageTitle">电子附件</h3>
               <el-row>
                 <el-col :span="12">
@@ -516,8 +508,7 @@
               </el-row>
             </div>
             <!-- 审核1 -->
-            <div class="SH1"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  v-if="form.type === 'th' || form.type ==='th2'"
                  id="page8">
               <h3 class="pageTitle">审核</h3>
@@ -558,8 +549,7 @@
               </el-form>
             </div>
             <!-- 审核2 -->
-            <div class="SH2"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  v-if="form.type === 'sh'"
                  id="page8">
               <h3 class="pageTitle">审核</h3>
@@ -617,8 +607,7 @@
               </el-form>
             </div>
             <!-- 审核sh3 sh2 -->
-            <div class="SH3"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"
                  id="page12">
               <h3 class="pageTitle">审核</h3>
@@ -673,8 +662,7 @@
               </el-form>
             </div>
             <!-- 公示 -->
-            <div class="GS"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  v-if="gsForm.type === 'gs'"
                  id="page9">
               <h3 class="pageTitle">公示</h3>
@@ -773,8 +761,7 @@
               </el-form>
             </div>
             <!-- 审批 -->
-            <div class="SP"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  v-if="spForm.type === 'sp'|| this.spForm.type === 'sp2'"
                  id="page10">
               <h3 class="pageTitle">审批</h3>
@@ -830,8 +817,7 @@
               </el-form>
             </div>
             <!-- 注销 -->
-            <div class="ZX"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  v-if="zxForm.type === 'zx'"
                  id="page11">
               <h3 class="pageTitle">注销</h3>
@@ -865,8 +851,7 @@
               </el-form>
             </div>
             <!-- 审批记录 -->
-            <div class="SPJL"
-                 style="marginTop:60px"
+            <div style="marginTop:60px"
                  id="page7">
               <h3 class="pageTitle">审批记录</h3>
               <template v-if="disabledRecordDat.length">
@@ -938,27 +923,19 @@
           </div>
           <div class="right-ui">
             <ul>
-              <li :class="{currentLi: currClass === 'DAXX'}"><a href="javascript:;"
-                   @click="goScrollView('#page1','DAXX')">档案信息</a></li>
-              <li :class="{currentLi: currClass === 'BGXX'}"
-                  v-if="$route.query.type2 === 'bg'"><a @click="goScrollView('#page13','BGXX')"
-                   href="javascript:;">变更信息</a></li>
-              <li :class="{currentLi: currClass === 'JCXX'}"><a @click="goScrollView('#page2','JCXX')" href="javascript:;">基础信息</a></li>
-              <li :class="{currentLi: currClass === 'YHXX'}"><a @click="goScrollView('#page3','YHXX')" href="javascript:;">银行信息</a></li>
-              <li :class="{currentLi: currClass === 'JTCCQK'}"><a @click="goScrollView('#page4','JTCCQK')" href="javascript:;">家庭财产情况</a></li>
-              <li :class="{currentLi: currClass === 'YXSJZQK'}"><a @click="goScrollView('#page5','YXSJZQK')" href="javascript:;">已享受救助情况</a></li>
-              <li :class="{currentLi: currClass === 'DZFJ'}"><a @click="goScrollView('#page6','DZFJ')" href="javascript:;">电子附件</a></li>
-              <li :class="{currentLi: currClass === 'SH1'|| currClass === 'SH2'}"
-                  v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a @click="goScrollView('#page8',document.querySelector('.SH1') ? 'SH1' :'SH2')" href="javascript:;">审核</a></li>
-              <li :class="{currentLi: currClass === 'GS'}"
-                  v-if="gsForm.type === 'gs'"><a @click="goScrollView('#page9','GS')" href="javascript:;">公示</a></li>
-              <li :class="{currentLi: currClass === 'SP'}"
-                  v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a @click="goScrollView('#page10','SP')" href="javascript:;">审批</a></li>
-              <li :class="{currentLi: currClass === 'ZX'}"
-                  v-if="zxForm.type === 'zx'"><a @click="goScrollView('#page11','ZX')" href="javascript:;">注销</a></li>
-              <li :class="{currentLi: currClass === 'SH3'}"
-                  v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="javascript:;" @click="goScrollView('#page12','SH3')">审核</a></li>
-              <li :class="{currentLi: currClass === 'SPJL'}"><a @click="goScrollView('#page7','SPJL')" href="javascript:;">审批记录</a></li>
+              <li><a href="#page1">档案信息</a></li>
+              <li v-if="$route.query.type2 === 'bg'"><a href="#page13">变更信息</a></li>
+              <li><a href="#page2">基础信息</a></li>
+              <li><a href="#page3">银行信息</a></li>
+              <li><a href="#page4">家庭财产情况</a></li>
+              <li><a href="#page5">已享受救助情况</a></li>
+              <li><a href="#page6">电子附件</a></li>
+              <li v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a href="#page8">审核</a></li>
+              <li v-if="gsForm.type === 'gs'"><a href="#page9">公示</a></li>
+              <li v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a href="#page10">审批</a></li>
+              <li v-if="zxForm.type === 'zx'"><a href="#page11">注销</a></li>
+              <li v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="#page12">审核</a></li>
+              <li><a href="#page7">审批记录</a></li>
             </ul>
           </div>
         </el-col>
@@ -1031,7 +1008,7 @@ export default {
       approvalFormArr: [],   //  审核审批表
       restsDataArr: [],  //  其他证明材料
       closeRelativeArr: [], //   近亲属备案表
-      democracyArr: [],     // 民主评议
+      democracyArr: [],     //  民主评议
       // 审核
       form: {
         sId: "",
@@ -1083,10 +1060,7 @@ export default {
         remark: ""
       },
       // 变更信息
-      changeInfo: [],
-      anchor: "档案信息",
-      fatherDom_Top: "",
-      currClass: "DAXX",    // right li curr style
+      changeInfo: []
     }
   },
   created () {
@@ -1108,6 +1082,7 @@ export default {
         if (this.$route.query.type2 === "bg") newData.cId = this.$route.query.fId
         await getDisabilityAllowanceApi(newData)
       } catch (error) {
+        console.log(error, "获取残疾人信息")
         if (error.response.data.status === '+OK') {
           this.disabledInfo = error.response.data.data.data
           this.disabledInfo.abd_ex28 = this.disabledInfo.abd_ex28.replace(/[#0-9,]/g, "")
@@ -1132,6 +1107,7 @@ export default {
             try {
               if (item) await getBannersApi(item)
             } catch (error) {
+              console.log(error, "IDCardArrIDCardArr")
               if (error && error.response && error.response.statusText === "OK") {
                 this.IDCardArr.push(error.response.data)
               }
@@ -1187,6 +1163,7 @@ export default {
               }
             }
           })
+          console.log(this.disabledInfo, "this.disabledInfothis.disabledInfo")
         }
       }
     },
@@ -1219,6 +1196,7 @@ export default {
       } catch (error) {
         if (error.response.data.status === "+OK") {
           this.disabledRecordDat = error.response.data.data
+          console.log(this.disabledRecordDat, "this.disabledRecordDat")
         }
       }
     },
@@ -1246,6 +1224,7 @@ export default {
         }
         // gs
         else if (this.gsForm.opinion && this.gsForm.place && this.gsForm.startingTime && this.gsForm.endTime && this.gsFormImg.length && this.gsForm.type === "gs") {
+          console.log("gs条件满足了")
           // 处理成后端想要的时间格式
           this.gsForm.startingTime = this.formatDate(this.gsForm.startingTime)
           this.gsForm.endTime = this.formatDate(this.gsForm.endTime)
@@ -1255,23 +1234,27 @@ export default {
         }
         // sp sp2
         else if (this.spForm.opinion && this.spForm.userName && this.spForm.date && this.spForm.type === 'sp' || this.spForm.type === 'sp2') {
+          console.log("进审批了")
           this.spForm.date = this.formatDate(this.spForm.date)
           await disabledFlowPathApi(this.spForm)
         }
         // zx
         else if (this.zxForm.date && this.zxForm.remark && this.zxForm.type === 'zx') {
+          console.log("进入了注销页面")
           this.zxForm.date = this.formatDate(this.zxForm.date)
           await disabledFlowPathApi(this.zxForm)
         }
         // sh3 sp3 sh2
         else if (this.sh3Form.opinion && this.sh3Form.userName && this.sh3Form.date && this.sh3Form.type === 'sh3' || this.sh3Form.type === "sp3" || this.sh3Form.type === "sh2") {
           this.sh3Form.date = this.formatDate(this.sh3Form.date)
+          console.log("sh3,sp3")
           await disabledFlowPathApi(this.sh3Form)
         }
         else {
           this.$message.warning("请填写完整的信息")
         }
       } catch (error) {
+        console.log(error)
         if (error && error.response && error.response.data.status === "+OK") {
           this.$message.success(error.response.data.msg)
           if (this.$route.query.type2 === "sh") this.$router.push("/SubsidyDisabled/audit")
@@ -1300,6 +1283,7 @@ export default {
     },
     // 图片上传成功的回调
     onSuccess (response, file, fileList) {
+      console.log(response, file, fileList)
       this.fileList = fileList
     },
     onClose () {
@@ -1335,40 +1319,6 @@ export default {
     },
     formatDate (val) {
       return dayjs(val).format("YYYY-MM-DD HH:mm:ss")
-    },
-    onScroll () {
-      let DAXX = document.querySelector(".DAXX") || "" // 档案信息
-      let BGXX = document.querySelector(".BGXX") || "" // 变更信息
-      let JCXX = document.querySelector(".JCXX") || "" // 基础信息
-      let YHXX = document.querySelector(".YHXX") || "" // 银行信息
-      let JTCCQK = document.querySelector(".JTCCQK") || "" // 家庭财产情况
-      let YXSJZQK = document.querySelector(".YXSJZQK") || "" // 已享受救助情况
-      let DZFJ = document.querySelector(".DZFJ") || "" // 电子附件
-      let SH1 = document.querySelector(".SH1") || "" // 审核1
-      let SH2 = document.querySelector(".SH2") || "" // 审核2
-      let SH3 = document.querySelector(".SH3") || "" // 审核sh3
-      let GS = document.querySelector(".GS") || "" // 公示
-      let SP = document.querySelector(".SP") || "" // 审批
-      let ZX = document.querySelector(".ZX") || "" // 注销
-      let SPJL = document.querySelector(".SPJL") || "" // 审批记录
-      if (DAXX && Math.abs(DAXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "DAXX"
-      if (BGXX && Math.abs(BGXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "BGXX"
-      if (JCXX && Math.abs(JCXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "JCXX"
-      if (YHXX && Math.abs(YHXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "YHXX"
-      if (JTCCQK && Math.abs(JTCCQK.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "JTCCQK"
-      if (YXSJZQK && Math.abs(YXSJZQK.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "YXSJZQK"
-      if (DZFJ && Math.abs(DZFJ.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "DZFJ"
-      if (SH1 && Math.abs(SH1.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SH1"
-      if (SH2 && Math.abs(SH2.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SH2"
-      if (SH3 && Math.abs(SH3.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SH3"
-      if (GS && Math.abs(GS.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "GS"
-      if (SP && Math.abs(SP.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SP"
-      if (ZX && Math.abs(ZX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "ZX"
-      if (SPJL && Math.abs(SPJL.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SPJL"
-    },
-    goScrollView (id, curr) {
-      this.currClass = curr
-      document.querySelector(id).scrollIntoView(true);
     }
   },
   components: {
@@ -1377,6 +1327,7 @@ export default {
     $route: {
       immediate: true,
       handler (to, from) {
+        console.log(this.$route)
         if (to.query.type === "th") this.form.type = "th"
         if (to.query.type === "th2") this.form.type = "th2"
         if (to.query.type === "sh") this.form.type = "sh"
@@ -1409,21 +1360,13 @@ export default {
           this.spForm.sId = to.query.fId
         }
         if (to) {
+          console.log(to, "tooooooooooooo")
           this.userData = to.query
           this.form.sId = this.userData.sId
         }
       }
-    },
-    currClass: {
-      handler () {
-        console.log(this.currClass)
-      }
     }
   },
-  mounted () {
-    this.$refs.leftFather.addEventListener("scroll", this.onScroll)
-    this.fatherDom_Top = this.$refs.leftFather.getBoundingClientRect().top
-  }
 }
 </script>
 
@@ -1508,19 +1451,6 @@ export default {
 /deep/ .el-carousel__indicator.el-carousel__indicator--horizontal.is-active {
   .el-carousel__button {
     background-color: #409eff;
-  }
-}
-
-.right-ui li {
-  list-style: none;
-  a {
-    color: #606266;
-  }
-}
-.currentLi {
-  list-style: unset !important;
-  a {
-    color: #409eff !important;
   }
 }
 </style>

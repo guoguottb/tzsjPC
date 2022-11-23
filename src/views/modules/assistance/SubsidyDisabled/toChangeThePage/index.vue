@@ -9,7 +9,7 @@
                      :rules="rules"
                      :model="ruleForm"
                      label-width="80px">
-              <!-- 基本信息 -->
+              <!-- 档案信息 -->
               <div id="page1">
                 <h3 class="pageTitle">基本信息</h3>
               </div>
@@ -414,8 +414,7 @@
                   <el-form-item label="前六个月护理费用"
                                 prop="abd_ex104"
                                 label-width="150px">
-                    <el-input v-model="ruleForm.abd_ex104"
-                              placeholder="请输入前六个月护理费用"></el-input>
+                    <el-input v-model="ruleForm.abd_ex104" placeholder="请输入前六个月护理费用"></el-input>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -638,15 +637,10 @@
           </div>
           <div class="right-ui">
             <ul>
-              <li :class="{currentLi: currClass === 'JBXX'}"><a @click="goScrollView('#page1','JBXX')"
-                   href="javascript:;">基本信息</a></li>
-              <li :class="{currentLi: currClass === 'BGXX'}"
-                  v-if="bgForm.type === 'bg'"><a href="javascript:;"
-                   @click="goScrollView('#page4','BGXX')">变更信息</a></li>
-              <li :class="{currentLi: currClass === 'QTXX'}"><a href="javascript:;"
-                   @click="goScrollView('#page2','QTXX')">其他信息</a></li>
-              <li :class="{currentLi: currClass === 'SFZJQTZMCL'}"><a href="javascript:;"
-                   @click="goScrollView('#page3','SFZJQTZMCL')">身份证及其他证明材料</a></li>
+              <li><a href="#page1">基本信息</a></li>
+              <li v-if="bgForm.type === 'bg'"><a href="#page4">变更信息</a></li>
+              <li><a href="#page2">其他信息</a></li>
+              <li><a href="#page3">身份证及其他证明材料</a></li>
             </ul>
           </div>
         </el-col>
@@ -813,9 +807,7 @@ export default {
         date: "",
         data: ""
       },
-      saveLoading: false,
-      fatherDom_Top: "",
-      currClass: "JBXX",     // right li curr style
+      saveLoading: false
     }
   },
   created () {
@@ -1113,20 +1105,6 @@ export default {
           this.abd_ex96 = []
           break;
       }
-    },
-    onScroll () {
-      let JBXX = document.querySelector("#page1") || "" // 基本信息
-      let QTXX = document.querySelector("#page2") || "" // 其他信息
-      let SFZJQTZMCL = document.querySelector("#page3") || "" // 身份证及其他证明材料
-      let BGXX = document.querySelector("#page4") || "" // 变更信息
-      if (JBXX && Math.abs(JBXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "JBXX"
-      if (QTXX && Math.abs(QTXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "QTXX"
-      if (SFZJQTZMCL && Math.abs(SFZJQTZMCL.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SFZJQTZMCL"
-      if (BGXX && Math.abs(BGXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "BGXX"
-    },
-    goScrollView (id, curr) {
-      this.currClass = curr
-      document.querySelector(id).scrollIntoView(true);
     }
   },
   components: {
@@ -1147,8 +1125,7 @@ export default {
     }
   },
   mounted () {
-    this.$refs.leftFather.addEventListener("scroll", this.onScroll)
-    this.fatherDom_Top = this.$refs.leftFather.getBoundingClientRect().top
+    // this.$refs["ruleForm"].clearValidate() 
   }
 }
 </script>
@@ -1249,19 +1226,6 @@ export default {
     img {
       width: 150px;
     }
-  }
-}
-
-.right-ui li {
-  list-style: none;
-  a {
-    color: #606266;
-  }
-}
-.currentLi {
-  list-style: unset !important;
-  a {
-    color: #409eff !important;
   }
 }
 </style>
