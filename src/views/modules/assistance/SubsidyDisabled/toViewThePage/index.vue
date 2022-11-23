@@ -938,19 +938,19 @@
           </div>
           <div class="right-ui">
             <ul>
-              <li><a href="#page1">档案信息</a></li>
-              <li v-if="$route.query.type2 === 'bg'"><a href="#page13">变更信息</a></li>
-              <li><a href="#page2">基础信息</a></li>
-              <li><a href="#page3">银行信息</a></li>
-              <li><a href="#page4">家庭财产情况</a></li>
-              <li><a href="#page5">已享受救助情况</a></li>
-              <li><a href="#page6">电子附件</a></li>
-              <li v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a href="#page8">审核</a></li>
-              <li v-if="gsForm.type === 'gs'"><a href="#page9">公示</a></li>
-              <li v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a href="#page10">审批</a></li>
-              <li v-if="zxForm.type === 'zx'"><a href="#page11">注销</a></li>
-              <li v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="#page12">审核</a></li>
-              <li><a href="#page7">审批记录</a></li>
+              <li :class="{currentLi: currClass === 'DAXX'}"><a href="#page1">档案信息</a></li>
+              <li :class="{currentLi: currClass === 'BGXX'}" v-if="$route.query.type2 === 'bg'"><a href="#page13">变更信息</a></li>
+              <li :class="{currentLi: currClass === 'JCXX'}"><a href="#page2">基础信息</a></li>
+              <li :class="{currentLi: currClass === 'YHXX'}"><a href="#page3">银行信息</a></li>
+              <li :class="{currentLi: currClass === 'JTCCQK'}"><a href="#page4">家庭财产情况</a></li>
+              <li :class="{currentLi: currClass === 'YXSJZQK'}"><a href="#page5">已享受救助情况</a></li>
+              <li :class="{currentLi: currClass === 'DZFJ'}"><a href="#page6">电子附件</a></li>
+              <li :class="{currentLi: currClass === 'SH1'|| currClass === 'SH2'}" v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a href="#page8">审核</a></li>
+              <li :class="{currentLi: currClass === 'GS'}" v-if="gsForm.type === 'gs'"><a href="#page9">公示</a></li>
+              <li :class="{currentLi: currClass === 'SP'}" v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a href="#page10">审批</a></li>
+              <li :class="{currentLi: currClass === 'ZX'}" v-if="zxForm.type === 'zx'"><a href="#page11">注销</a></li>
+              <li :class="{currentLi: currClass === 'SH3'}" v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="#page12">审核</a></li>
+              <li :class="{currentLi: currClass === 'SPJL'}"><a href="#page7">审批记录</a></li>
             </ul>
           </div>
         </el-col>
@@ -1344,65 +1344,20 @@ export default {
       let SP = document.querySelector(".SP") || "" // 审批
       let ZX = document.querySelector(".ZX") || "" // 注销
       let SPJL = document.querySelector(".SPJL") || "" // 审批记录
-      if (DAXX && DAXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "DAXX"
-      if (BGXX && BGXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "BGXX"
-      if (JCXX && JCXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "JCXX"
-      if (YHXX && YHXX.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "YHXX"
-      if (JTCCQK && JTCCQK.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "JTCCQK"
-      if (YXSJZQK && YXSJZQK.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "YXSJZQK"
-      if (DZFJ && DZFJ.getBoundingClientRect().top === this.fatherDom_Top)  this.currClass = "DZFJ"
-      console.log("scroll",YHXX , YHXX.getBoundingClientRect().top === this.fatherDom_Top)
-      // if (document.querySelector(".BGXX")) this.indexesArr.push({
-      //   BGXX: document.querySelector(".BGXX").getBoundingClientRect().top
-      // })
-      // // 基础信息
-      // if (document.querySelector(".JCXX")) this.indexesArr.push({
-      //   JCXX: document.querySelector(".JCXX").getBoundingClientRect().top
-      // })
-      // // 银行信息
-      // if (document.querySelector(".YHXX")) this.indexesArr.push({
-      //   YHXX: document.querySelector(".YHXX").getBoundingClientRect().top
-      // })
-      // // 家庭财产情况
-      // if (document.querySelector(".JTCCQK")) this.indexesArr.push({
-      //   sJTCCQK: document.querySelector(".JTCCQK").getBoundingClientRect().top
-      // })
-      // // 已享受救助情况
-      // if (document.querySelector(".YXSJZQK")) this.indexesArr.push({
-      //   YXSJZQK: document.querySelector(".YXSJZQK").getBoundingClientRect().top
-      // })
-      // // 电子附件
-      // if (document.querySelector(".DZFJ")) this.indexesArr.push({
-      //   DZFJ: document.querySelector(".DZFJ").getBoundingClientRect().top
-      // })
-      // // 审核1
-      // if (document.querySelector(".SH1")) this.indexesArr.push({
-      //   SH1: document.querySelector(".SH1").getBoundingClientRect().top
-      // })
-      // // 审核2
-      // if (document.querySelector(".SH2")) this.indexesArr.push({
-      //   SH2: document.querySelector(".SH2").getBoundingClientRect().top
-      // })
-      // // 审核sh3
-      // if (document.querySelector(".SH3")) this.indexesArr.push({
-      //   SH3: document.querySelector(".SH3").getBoundingClientRect().top
-      // })
-      // // 公示
-      // if (document.querySelector(".GS")) this.indexesArr.push({
-      //   GS: document.querySelector(".GS").getBoundingClientRect().top
-      // })
-      // // 审批
-      // if (document.querySelector(".SP")) this.indexesArr.push({
-      //   SP: document.querySelector(".SP").getBoundingClientRect().top
-      // })
-      // // 注销
-      // if (document.querySelector(".ZX")) this.indexesArr.push({
-      //   ZX: document.querySelector(".ZX").getBoundingClientRect().top
-      // })
-      // // 审批记录
-      // if (document.querySelector(".SPJL")) this.indexesArr.push({
-      //   SPJL: document.querySelector(".SPJL").getBoundingClientRect().top
-      // })
+      if (DAXX && Math.abs(DAXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "DAXX"
+      if (BGXX && Math.abs(BGXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "BGXX"
+      if (JCXX && Math.abs(JCXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "JCXX"
+      if (YHXX && Math.abs(YHXX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "YHXX"
+      if (JTCCQK && Math.abs(JTCCQK.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "JTCCQK"
+      if (YXSJZQK && Math.abs(YXSJZQK.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "YXSJZQK"
+      if (DZFJ && Math.abs(DZFJ.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "DZFJ"
+      if (SH1 && Math.abs(SH1.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SH1"
+      if (SH2 && Math.abs(SH2.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SH2"
+      if (SH3 && Math.abs(SH3.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SH3"
+      if (GS && Math.abs(GS.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "GS"
+      if (SP && Math.abs(SP.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SP"
+      if (ZX && Math.abs(ZX.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "ZX"
+      if (SPJL && Math.abs(SPJL.getBoundingClientRect().top - this.fatherDom_Top) < 25) this.currClass = "SPJL"
     }
   },
   components: {
@@ -1455,9 +1410,8 @@ export default {
     }
   },
   mounted () {
-    let dom = this.$refs.leftFather
-    this.fatherDom_Top = dom.getBoundingClientRect().top
-    dom.addEventListener("scroll", this.onScroll)
+    this.$refs.leftFather.addEventListener("scroll", this.onScroll)
+    this.fatherDom_Top = this.$refs.leftFather.getBoundingClientRect().top
   }
 }
 </script>
@@ -1546,7 +1500,16 @@ export default {
   }
 }
 
-.rightIndexes {
+.right-ui li {
   list-style: none;
+  a {
+    color: #606266;
+  }
+}
+.currentLi {
+  list-style: unset !important;
+  a {
+  color: #409eff !important;
+  }
 }
 </style>
