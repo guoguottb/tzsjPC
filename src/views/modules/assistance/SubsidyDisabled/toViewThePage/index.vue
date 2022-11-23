@@ -1009,7 +1009,7 @@ export default {
       approvalFormArr: [],   //  审核审批表
       restsDataArr: [],  //  其他证明材料
       closeRelativeArr: [], //   近亲属备案表
-      democracyArr: [],     //  民主评议
+      democracyArr: [],     // 民主评议
       // 审核
       form: {
         sId: "",
