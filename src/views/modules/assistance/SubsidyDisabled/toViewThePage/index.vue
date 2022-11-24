@@ -943,22 +943,33 @@
               <li :class="{currentLi: currClass === 'BGXX'}"
                   v-if="$route.query.type2 === 'bg'"><a @click="goScrollView('#page13','BGXX')"
                    href="javascript:;">变更信息</a></li>
-              <li :class="{currentLi: currClass === 'JCXX'}"><a @click="goScrollView('#page2','JCXX')" href="javascript:;">基础信息</a></li>
-              <li :class="{currentLi: currClass === 'YHXX'}"><a @click="goScrollView('#page3','YHXX')" href="javascript:;">银行信息</a></li>
-              <li :class="{currentLi: currClass === 'JTCCQK'}"><a @click="goScrollView('#page4','JTCCQK')" href="javascript:;">家庭财产情况</a></li>
-              <li :class="{currentLi: currClass === 'YXSJZQK'}"><a @click="goScrollView('#page5','YXSJZQK')" href="javascript:;">已享受救助情况</a></li>
-              <li :class="{currentLi: currClass === 'DZFJ'}"><a @click="goScrollView('#page6','DZFJ')" href="javascript:;">电子附件</a></li>
+              <li :class="{currentLi: currClass === 'JCXX'}"><a @click="goScrollView('#page2','JCXX')"
+                   href="javascript:;">基础信息</a></li>
+              <li :class="{currentLi: currClass === 'YHXX'}"><a @click="goScrollView('#page3','YHXX')"
+                   href="javascript:;">银行信息</a></li>
+              <li :class="{currentLi: currClass === 'JTCCQK'}"><a @click="goScrollView('#page4','JTCCQK')"
+                   href="javascript:;">家庭财产情况</a></li>
+              <li :class="{currentLi: currClass === 'YXSJZQK'}"><a @click="goScrollView('#page5','YXSJZQK')"
+                   href="javascript:;">已享受救助情况</a></li>
+              <li :class="{currentLi: currClass === 'DZFJ'}"><a @click="goScrollView('#page6','DZFJ')"
+                   href="javascript:;">电子附件</a></li>
               <li :class="{currentLi: currClass === 'SH1'|| currClass === 'SH2'}"
-                  v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a @click="goScrollView('#page8',form.type === 'sh' ? 'SH2' :'SH1')" href="javascript:;">审核</a></li>
+                  v-if="form.type === 'th' || form.type ==='th2'|| form.type ==='sh'"><a @click="goScrollView('#page8',form.type === 'sh' ? 'SH2' :'SH1')"
+                   href="javascript:;">审核</a></li>
               <li :class="{currentLi: currClass === 'GS'}"
-                  v-if="gsForm.type === 'gs'"><a @click="goScrollView('#page9','GS')" href="javascript:;">公示</a></li>
+                  v-if="gsForm.type === 'gs'"><a @click="goScrollView('#page9','GS')"
+                   href="javascript:;">公示</a></li>
               <li :class="{currentLi: currClass === 'SP'}"
-                  v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a @click="goScrollView('#page10','SP')" href="javascript:;">审批</a></li>
+                  v-if="spForm.type === 'sp'|| spForm.type === 'sp2'"><a @click="goScrollView('#page10','SP')"
+                   href="javascript:;">审批</a></li>
               <li :class="{currentLi: currClass === 'ZX'}"
-                  v-if="zxForm.type === 'zx'"><a @click="goScrollView('#page11','ZX')" href="javascript:;">注销</a></li>
+                  v-if="zxForm.type === 'zx'"><a @click="goScrollView('#page11','ZX')"
+                   href="javascript:;">注销</a></li>
               <li :class="{currentLi: currClass === 'SH3'}"
-                  v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="javascript:;" @click="goScrollView('#page12','SH3')">审核</a></li>
-              <li :class="{currentLi: currClass === 'SPJL'}"><a @click="goScrollView('#page7','SPJL')" href="javascript:;">审批记录</a></li>
+                  v-if="sh3Form.type === 'sh3' || sh3Form.type === 'sp3' || sh3Form.type === 'sh2'"><a href="javascript:;"
+                   @click="goScrollView('#page12','SH3')">审核</a></li>
+              <li :class="{currentLi: currClass === 'SPJL'}"><a @click="goScrollView('#page7','SPJL')"
+                   href="javascript:;">审批记录</a></li>
             </ul>
           </div>
         </el-col>
@@ -1086,7 +1097,8 @@ export default {
       changeInfo: [],
       anchor: "档案信息",
       fatherDom_Top: "",
-      currClass: "DAXX",    // right li curr style
+      currClass: "DAXX",
+      // right li curr style
     }
   },
   created () {
