@@ -1099,6 +1099,7 @@ export default {
       fatherDom_Top: "",
       currClass: "DAXX",
       // right li curr style
+      a: ""
     }
   },
   created () {
