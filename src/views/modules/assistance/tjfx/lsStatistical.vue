@@ -61,7 +61,7 @@
                          label="地区"
                          width="100">
         </el-table-column>
-        <el-table-column prop="all"
+        <el-table-column prop="entire"
                          label="临时救助对象"
                          width="80">
         </el-table-column>
@@ -74,7 +74,7 @@
           </el-table-column>
           <el-table-column label="非本地户籍"
                            width="80"
-                           prop="outer">
+                           prop="nonlocal">
           </el-table-column>
         </el-table-column>
         <el-table-column prop="ab_ex2"
@@ -90,7 +90,7 @@
           </el-table-column>
           <el-table-column label="其他"
                            width="80"
-                           prop="else">
+                           prop="annum">
           </el-table-column>
         </el-table-column>
 

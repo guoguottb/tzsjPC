@@ -648,32 +648,6 @@ export default {
       console.log(health, "health")
       console.log(this.tableData, "currentTable")
     },
-    // changeOption (scope) {
-    //   let h = this.currentData.familyAmt / this.currentData.familyNum / 12
-    //   switch (scope.row.value) {
-    //     case "普通对象":
-    //       this.tableData[scope.$index].money = (this.dbStandard - h).toFixed(2)
-    //       break;
-    //     case "10%增发对象":
-    //       this.tableData[scope.$index].money = ((this.dbStandard - h) + this.dbStandard * 0.1).toFixed(2)
-    //       break;
-    //     case "重残对象（所有一二级残）":
-    //       this.tableData[scope.$index].money = (this.dbStandard).toFixed(2)
-    //       break;
-    //     case "重病对象":
-    //       this.tableData[scope.$index].money = (this.dbStandard * 1.2).toFixed(2)
-    //       break;
-    //     case "重残单人保（所有一二级重残）":
-    //       this.tableData[scope.$index].money = (this.dbStandard * 0.65).toFixed(2)
-    //       break;
-    //     case "10%重残单人保（三级智力、三级重残）":
-    //       this.tableData[scope.$index].money = (this.dbStandard * 0.75).toFixed(2)
-    //       break;
-    //   }
-    //   this.showTable = true // 显示table表格
-    //   console.log(health, "health")
-    //   console.log(this.tableData, "currentTable")
-    // },
     changeOption (scope) {
       let h = this.currentData.familyAmt / this.currentData.familyNum / 12
       switch (scope.row.value) {
@@ -703,10 +677,11 @@ export default {
     sumMoney () {
       let sum = 0
       this.tableData.filter(item => {
-        if (typeof item.money === 'string') return
-        sum += item.money
+        if (item.money === '暂无政策') return
+        sum += +item.money
       })
-      return sum
+      console.log(this.tableData)
+      return sum.toFixed(2) + "元"
     }
   }
 }

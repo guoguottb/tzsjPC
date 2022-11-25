@@ -82,7 +82,8 @@
                 height="700px"
                 id="mytable"
                 v-show="isShow"
-                v-loading="loading" style="width:100%">
+                v-loading="loading"
+                style="width:100%">
         <el-table-column :label="tableTitle"
                          style="display:none">
           <el-table-column prop="area"
@@ -173,7 +174,7 @@
             <el-table-column label="动态管理">
               <el-table-column label="本季度末新增保">
                 <el-table-column label="人数"
-                                 prop="add">
+                                 prop="plus">
                 </el-table-column>
               </el-table-column>
 
@@ -417,23 +418,23 @@ export default {
       supportWay: "", // 供养方式
       tableTitle: "",
       printLoading: true,
-            printObj: {
-              id: "mytable",
-              popTitle: 'good print',
-              extraCss: "https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css, https://cdn.bootcdn.net/ajax/libs/hover.css/2.3.1/css/hover-min.css",
-              extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
-              beforeOpenCallback (vue) {
-                vue.printLoading = true
-                console.log('打开之前')
-              },
-              openCallback (vue) {
-                vue.printLoading = false
-                console.log('执行了打印')
-              },
-              closeCallback (vue) {
-                console.log('关闭了打印工具')
-              }
-            }
+      printObj: {
+        id: "mytable",
+        popTitle: 'good print',
+        extraCss: "https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css, https://cdn.bootcdn.net/ajax/libs/hover.css/2.3.1/css/hover-min.css",
+        extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
+        beforeOpenCallback (vue) {
+          vue.printLoading = true
+          console.log('打开之前')
+        },
+        openCallback (vue) {
+          vue.printLoading = false
+          console.log('执行了打印')
+        },
+        closeCallback (vue) {
+          console.log('关闭了打印工具')
+        }
+      }
     };
   },
   created () {
@@ -625,7 +626,6 @@ export default {
   font-size: 30px;
 }
 
-
 .demonstration {
   font-size: 14px;
   color: #606266;
@@ -648,20 +648,18 @@ export default {
 
 #mytable {
   /deep/ .el-table {
-   margin-top: 10px;
-   table{
-     width: 100%!important;
-   }
-   .el-table__body,
-   .el-table__header {
-     width: 100% !important;
-   }
+    margin-top: 10px;
+    table {
+      width: 100% !important;
+    }
+    .el-table__body,
+    .el-table__header {
+      width: 100% !important;
+    }
 
-   .el-table__body {
-     width: 100% !important;
-   }
-
-   
- }
+    .el-table__body {
+      width: 100% !important;
+    }
+  }
 }
 </style>

@@ -62,7 +62,7 @@
         <el-table-column label="市区"
                          prop="area"></el-table-column>
         <el-table-column label="本季度末低收入人口总户数"
-                         prop="all"></el-table-column>
+                         prop="entire"></el-table-column>
         <el-table-column label="最低生活保障对象"
                          prop="db"></el-table-column>
         <el-table-column label="特困供养人员"

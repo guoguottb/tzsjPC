@@ -114,8 +114,14 @@
           <el-table-column label="同步月份"
                            prop="month">
           </el-table-column>
-          <el-table-column label="同步失败原因"
-                           prop="reason">
+
+          <!-- prop="reason" -->
+          <el-table-column label="同步失败原因">
+            <template slot-scope="scope">
+              <div style='display:-webkit-box; overflow:hidden; -webkit-line-clamp:3; -webkit-box-orient:vertical;'
+                   :title="scope.row.reason"
+                   class="single">{{scope.row.reason}}</div>
+            </template>
           </el-table-column>
           <el-table-column label="救助类型"
                            prop="rescueType">
@@ -390,5 +396,16 @@ export default {
 /deep/ .el-table__row button {
   margin: 0;
   margin-bottom: 12px;
+}
+
+.single {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/deep/ .el-table__cell {
+  .cell {
+    max-height: 60px !important;
+  }
 }
 </style>

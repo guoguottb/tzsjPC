@@ -240,7 +240,7 @@
           <!-- 动态管理 -->
           <el-table-column label="动态管理">
             <el-table-column label="本季度新增保障对象(人)"
-                             prop="add"
+                             prop="plus"
                              width="70"> </el-table-column>
 
             <el-table-column label="本季度退出保障对象(人)"
@@ -269,7 +269,7 @@
                              prop="jdlkShiBiaoRs"
                              width="70">
             </el-table-column>
->>>>>>> edae4e1 (完善统计分析的年份选择器样式)
+            >>>>>>> edae4e1 (完善统计分析的年份选择器样式)
             <el-table-column label="月保障标准(元/月)"
                              prop="jdlkShiBiaoRs"
                              width="70">
@@ -335,11 +335,11 @@ export default {
       } catch (error) {
         if (error && error.response && error.response.data.status == "+OK") {
           if (type == "城市") {
-            this.cityData = res.data.data
+            this.cityData = error.data.data
             this.cityTableTitle = `${data.year}年${data.quarter}${data.type}低保统计分析`
             this.cityRoCountry = "城市"
           } else if (type == "农村") {
-            this.countryData = res.data.data
+            this.countryData = error.data.data
             this.countryTableTitle = `${data.year}年${data.quarter}${data.type}低保统计分析`
             this.cityRoCountry = "农村"
           }
