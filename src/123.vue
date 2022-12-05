@@ -7,7 +7,7 @@ export default {
   data () {
     return {
       name: "",
-      username: "",
+      username: ""
     }
   },
   created () {
