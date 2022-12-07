@@ -7,7 +7,6 @@ export default {
   data () {
     return {
       name: "",
-      username: "132"
     }
   },
   created () {
